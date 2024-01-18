@@ -1,3 +1,5 @@
+#Here we will Read the Data from Database and Tain_test_split will be done here.
+
 import os
 import sys       #for using our custom exception
 
@@ -16,9 +18,13 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass  #we can create class variable using this
 
 
+from src.components.data_transformation import DataTransformation
+from src.components.data_transformation import DataTransformationConfig
 
 
-#where i have to save the training data , where test data will be saved -- these INPUT will be in Data_Ingestion class
+
+
+#where i have to save the training data , where test data will be saved -- these INPUT will be in DataIngestion class
 @dataclass  #decorator   --> we can define our class variable directly . (dont need INIT-->we use __init__ to define class variable inside that class.)
 class DataIngestionConfig:
     train_data_path : str= os.path.join('artifacts',"train.csv")
@@ -28,8 +34,8 @@ class DataIngestionConfig:
 
 # in CLASS, if we have both function and class variable, use __init__  ----. not @dataclass
     
-class Data_Ingestion:
-    def __init__(self):               # when we call Data_Ingestion class, above three path will be saved in ingestion_config class variable.
+class DataIngestion:
+    def __init__(self):               # when we call DataIngestion class, above three path will be saved in ingestion_config class variable.
         self.ingestion_config = DataIngestionConfig()
 
     def initiate_data_ingestion(self):  # here write the code to read the read the data from database.
@@ -63,5 +69,9 @@ class Data_Ingestion:
         
 
 if __name__ == "__main__":
-    obj = Data_Ingestion()
-    obj.initiate_data_ingestion()
+    obj = DataIngestion()
+    train_data, test_data =obj.initiate_data_ingestion()
+
+
+    data_transformation = DataTransformation()
+    data_transformation.initiate_data_transformation(train_data, test_data)
