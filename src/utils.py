@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 import dill                    #dill help us to create pickle file
 from sklearn.metrics import r2_score
+from sklearn.model_selection import RandomizedSearchCV
 
 from src.exception import CustomException
 
@@ -24,17 +25,24 @@ def save_object(file_path , obj):              #saving all object using this fun
 
 
     
-def evaluate_models(X_train, y_train,X_test,y_test,models):
+def evaluate_models(X_train, y_train,X_test,y_test,models,param):
     try:
         report = {}
 
         for i in range(len(list(models))):
+
             model = list(models.values())[i]
+            para=param[list(models.keys())[i]]
+
+            gs = RandomizedSearchCV(model,para,cv=3)            #randamizerSearchCV for hypertunning, getting the best parameter
+            gs.fit(X_train,y_train)
             
             
+            model.set_params(**gs.best_params_)         #setting the best parameter 
+            model.fit(X_train,y_train)
 
             
-            model.fit(X_train,y_train)
+            
 
             #model.fit(X_train, y_train)  # Train model
 
