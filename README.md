@@ -1,7 +1,7 @@
 # STUDENT PERFORMANCE INDICATOR
 
 ## Information About the Dataset:
-The dataset The goal of this project is to understand the influence of the parents background, test preparation, and various other variables on the students math score.
+ The goal of this project is to understand the influence of the parents background, test preparation, and various other variables on the students math score.
 
 There are 8 independent variables:
 
