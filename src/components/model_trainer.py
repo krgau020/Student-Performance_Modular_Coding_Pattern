@@ -58,7 +58,7 @@ class ModelTrainer:
                     # 'max_features':['sqrt','log2'],                   #--> 
                 },
                 "Random Forest":{
-                    # 'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+                    # 'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],    #for Regression
                  
                     # 'max_features':['sqrt','log2',None],
                     'n_estimators': [8,16,32,64,128,256]         #--> no of decision tree in forest , higher value increase accuracy bur with computational time.
