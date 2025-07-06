@@ -27,14 +27,14 @@ math score: Math score of a student.
 
 # Project Development Approach
 
-## Data Ingestion 
+Data Ingestion 
 
-## Data Transformation
+Data Transformation
 
-## Model Training 
+Model Training 
 
-## Prediction Pipeline 
+Prediction Pipeline 
 
 
-## Flask App creation 
+Flask App creation 
 
