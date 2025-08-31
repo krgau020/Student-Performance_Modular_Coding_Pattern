@@ -30,7 +30,7 @@ math score: Math score of a student.
 Data Ingestion 
 
 Data Transformation
-
+ 
 Model Training 
 
 Prediction Pipeline 
